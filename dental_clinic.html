@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dental & Oral Disease Clinic — Bhopal</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F7F3EE;
+    --ivory: #FAF8F5;
+    --deep: #1A1410;
+    --brown: #3D2B1F;
+    --gold: #C4993A;
+    --gold-light: #E8C976;
+    --teal: #1E5F5A;
+    --teal-light: #2E8077;
+    --muted: #8A7D72;
+    --border: #E2D8CE;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--ivory);
+    color: var(--deep);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(247,243,238,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    transition: box-shadow 0.3s;
+  }
+
+  nav.scrolled { box-shadow: 0 4px 24px rgba(30,10,0,0.08); }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+
+  .nav-logo-icon {
+    width: 36px; height: 36px;
+    background: var(--teal);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 18px;
+  }
+
+  .nav-logo-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--brown);
+  }
+
+  .nav-logo-text span {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 400;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex; gap: 2rem; list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.85rem;
+    color: var(--brown);
+    letter-spacing: 0.03em;
+    position: relative;
+    transition: color 0.2s;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute; bottom: -3px; left: 0; right: 0; height: 1px;
+    background: var(--gold);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--teal); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+
+  .nav-cta {
+    background: var(--teal);
+    color: white !important;
+    padding: 0.55rem 1.4rem;
+    border-radius: 2px;
+    font-size: 0.82rem !important;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta::after { display: none !important; }
+  .nav-cta:hover { background: var(--teal-light) !important; color: white !important; }
+
+  .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+  .hamburger span { display: block; width: 24px; height: 1.5px; background: var(--brown); transition: 0.3s; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 72px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 5rem 3rem 5rem 4rem;
+    position: relative; z-index: 2;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: white;
+    border: 1px solid var(--border);
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    font-size: 0.78rem;
+    color: var(--teal);
+    font-weight: 500;
+    margin-bottom: 2rem;
+    width: fit-content;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-badge::before {
+    content: '★';
+    color: var(--gold);
+    font-size: 0.7rem;
+  }
+
+  .hero-h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 4.5vw, 5rem);
+    font-weight: 500;
+    line-height: 1.1;
+    color: var(--brown);
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s ease 0.1s both;
+  }
+
+  .hero-h1 em {
+    font-style: italic;
+    color: var(--teal);
+  }
+
+  .hero-p {
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 440px;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.6s ease 0.2s both;
+  }
+
+  .hero-actions {
+    display: flex; gap: 1rem; align-items: center;
+    animation: fadeUp 0.6s ease 0.3s both;
+  }
+
+  .btn-primary {
+    background: var(--teal);
+    color: white;
+    border: none;
+    padding: 0.85rem 2rem;
+    font-size: 0.88rem;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.2s;
+    text-decoration: none;
+  }
+
+  .btn-primary:hover { background: var(--teal-light); transform: translateY(-1px); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--brown);
+    border: 1px solid var(--border);
+    padding: 0.85rem 2rem;
+    font-size: 0.88rem;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: border-color 0.2s, color 0.2s;
+    text-decoration: none;
+  }
+
+  .btn-outline:hover { border-color: var(--teal); color: var(--teal); }
+
+  .hero-stats {
+    display: flex; gap: 3rem;
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--border);
+    animation: fadeUp 0.6s ease 0.4s both;
+  }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: var(--brown);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-top: 0.3rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .hero-right {
+    position: relative;
+    background: var(--teal);
+    overflow: hidden;
+  }
+
+  .hero-right::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: 
+      radial-gradient(ellipse 60% 60% at 30% 40%, rgba(196,153,58,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 50% at 80% 70%, rgba(255,255,255,0.06) 0%, transparent 60%);
+  }
+
+  .hero-tooth-art {
+    position: absolute;
+    inset: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .tooth-svg-big {
+    width: 280px;
+    opacity: 0.15;
+    animation: floatSlow 6s ease-in-out infinite;
+  }
+
+  .hero-card {
+    position: absolute;
+    bottom: 3rem; left: 50%; transform: translateX(-50%);
+    background: white;
+    padding: 1.5rem 2rem;
+    border-radius: 4px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    min-width: 260px;
+    animation: fadeUp 0.8s ease 0.5s both;
+  }
+
+  .hero-card-title {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 0.6rem;
+  }
+
+  .hero-rating-row {
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+
+  .rating-big {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: var(--brown);
+    line-height: 1;
+  }
+
+  .stars-col { display: flex; flex-direction: column; gap: 0.2rem; }
+
+  .stars { color: var(--gold); font-size: 1rem; letter-spacing: 0.05em; }
+
+  .reviews-count { font-size: 0.78rem; color: var(--muted); }
+
+  .floating-dots {
+    position: absolute; inset: 0; pointer-events: none;
+  }
+
+  .dot {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    animation: floatDot linear infinite;
+  }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 6rem 4rem; }
+
+  .section-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--teal);
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 500;
+    color: var(--brown);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    max-width: 520px;
+  }
+
+  /* ── SERVICES ── */
+  #services {
+    background: var(--cream);
+  }
+
+  .services-header {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 3rem; margin-bottom: 4rem;
+    align-items: end;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: var(--border);
+  }
+
+  .service-card {
+    background: white;
+    padding: 2.5rem 2rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+    background: var(--teal);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+
+  .service-card:hover { background: #FEFCF9; }
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-icon {
+    width: 48px; height: 48px;
+    background: var(--teal);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    transition: transform 0.2s;
+  }
+
+  .service-card:hover .service-icon { transform: scale(1.05); }
+
+  .service-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--brown);
+    margin-bottom: 0.6rem;
+  }
+
+  .service-desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .service-link {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    margin-top: 1.2rem;
+    font-size: 0.8rem;
+    color: var(--teal);
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    padding: 6rem 4rem;
+  }
+
+  .about-visual {
+    position: relative;
+    height: 520px;
+  }
+
+  .about-bg-rect {
+    position: absolute;
+    top: 2rem; right: 0; left: 2rem; bottom: 0;
+    background: var(--teal);
+    border-radius: 2px;
+    opacity: 0.08;
+  }
+
+  .about-main-img {
+    position: absolute;
+    top: 0; left: 0; right: 2rem; bottom: 2rem;
+    background: var(--cream);
+    border-radius: 2px;
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+
+  .clinic-illustration {
+    width: 85%; height: 85%;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .about-badge-float {
+    position: absolute;
+    bottom: 3.5rem; right: -1.5rem;
+    background: var(--teal);
+    color: white;
+    padding: 1.2rem 1.5rem;
+    border-radius: 4px;
+    box-shadow: 0 16px 40px rgba(30,95,90,0.25);
+  }
+
+  .about-badge-float .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .about-badge-float .lbl {
+    font-size: 0.72rem;
+    opacity: 0.8;
+    margin-top: 0.2rem;
+    letter-spacing: 0.05em;
+  }
+
+  .about-text .section-subtitle { max-width: 100%; margin-bottom: 1.5rem; }
+
+  .about-features {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    margin-top: 2.5rem;
+  }
+
+  .about-feature {
+    display: flex; align-items: flex-start; gap: 0.75rem;
+  }
+
+  .about-feature-icon {
+    width: 32px; height: 32px; min-width: 32px;
+    background: rgba(30,95,90,0.1);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem;
+    color: var(--teal);
+  }
+
+  .about-feature-text {
+    font-size: 0.85rem;
+    color: var(--brown);
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  /* ── REVIEWS ── */
+  #reviews {
+    background: var(--deep);
+    padding: 6rem 4rem;
+  }
+
+  #reviews .section-label { color: var(--gold-light); }
+  #reviews .section-title { color: var(--cream); }
+  #reviews .section-subtitle { color: rgba(247,243,238,0.55); }
+
+  .reviews-top {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    margin-bottom: 3.5rem;
+  }
+
+  .overall-score {
+    display: flex; align-items: center; gap: 1.5rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 1.5rem 2rem;
+    border-radius: 4px;
+    min-width: 200px;
+  }
+
+  .score-big {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+
+  .score-details { display: flex; flex-direction: column; gap: 0.4rem; }
+  .score-stars { color: var(--gold); font-size: 1.1rem; }
+  .score-total { font-size: 0.78rem; color: rgba(247,243,238,0.45); }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .review-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    padding: 2rem;
+    border-radius: 4px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .review-card:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(196,153,58,0.3);
+  }
+
+  .review-header {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .reviewer-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: white;
+  }
+
+  .reviewer-info .name {
+    font-weight: 500;
+    color: var(--cream);
+    font-size: 0.9rem;
+  }
+
+  .reviewer-info .date {
+    font-size: 0.75rem;
+    color: rgba(247,243,238,0.35);
+    margin-top: 0.1rem;
+  }
+
+  .review-stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 0.8rem; }
+
+  .review-text {
+    font-size: 0.88rem;
+    color: rgba(247,243,238,0.7);
+    line-height: 1.75;
+  }
+
+  .review-tag {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.2rem 0.6rem;
+    background: rgba(30,95,90,0.25);
+    border: 1px solid rgba(30,95,90,0.4);
+    border-radius: 100px;
+    font-size: 0.72rem;
+    color: rgba(46,128,119,1);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── BOOK APPOINTMENT ── */
+  #book {
+    padding: 6rem 4rem;
+    background: var(--cream);
+  }
+
+  .book-inner {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
+    align-items: start;
+  }
+
+  .form-section {}
+
+  .form-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group.full { grid-column: 1 / -1; }
+
+  .form-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  .form-input, .form-select, .form-textarea {
+    border: 1px solid var(--border);
+    background: white;
+    padding: 0.75rem 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--brown);
+    border-radius: 2px;
+    outline: none;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+  }
+
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: var(--teal);
+  }
+
+  .form-textarea { resize: vertical; min-height: 100px; }
+
+  .form-submit {
+    grid-column: 1 / -1;
+    background: var(--teal);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.15s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .form-submit:hover { background: var(--teal-light); transform: translateY(-1px); }
+
+  .form-submit.submitted { background: var(--teal); }
+
+  .info-section {}
+
+  .info-block {
+    background: white;
+    border: 1px solid var(--border);
+    padding: 2rem;
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+  }
+
+  .info-block-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--brown);
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .info-row {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: 0.6rem 0;
+  }
+
+  .info-row + .info-row { border-top: 1px solid rgba(226,216,206,0.5); }
+
+  .info-icon {
+    width: 28px; height: 28px; min-width: 28px;
+    background: rgba(30,95,90,0.08);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem;
+  }
+
+  .info-content .label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .info-content .value { font-size: 0.9rem; color: var(--brown); font-weight: 500; margin-top: 0.15rem; }
+
+  .hours-table { width: 100%; }
+  .hours-table tr td { padding: 0.4rem 0; font-size: 0.88rem; }
+  .hours-table tr td:first-child { color: var(--muted); }
+  .hours-table tr td:last-child { color: var(--brown); font-weight: 500; text-align: right; }
+  .hours-table .today td { color: var(--teal); font-weight: 600; }
+  .hours-table .today td:first-child { color: var(--teal); }
+
+  /* ── MAP ── */
+  #location {
+    padding: 0;
+    height: 360px;
+    position: relative;
+    overflow: hidden;
+    background: var(--cream);
+  }
+
+  .map-placeholder {
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #e8f4f3 0%, #d4ecea 50%, #bfe3e0 100%);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 1rem;
+    position: relative;
+  }
+
+  .map-placeholder::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: 
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(30,95,90,0.06) 39px, rgba(30,95,90,0.06) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(30,95,90,0.06) 39px, rgba(30,95,90,0.06) 40px);
+  }
+
+  .map-pin {
+    width: 56px; height: 56px;
+    background: var(--teal);
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    box-shadow: 0 8px 24px rgba(30,95,90,0.4);
+    position: relative;
+    z-index: 2;
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  .map-pin::after {
+    content: '🦷';
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    transform: rotate(45deg);
+    font-size: 1.3rem;
+  }
+
+  .map-address {
+    background: white;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    font-size: 0.9rem;
+    color: var(--brown);
+    font-weight: 500;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+  }
+
+  .map-address small { display: block; color: var(--muted); font-size: 0.78rem; font-weight: 400; margin-top: 0.2rem; }
+
+  .map-open-btn {
+    background: var(--teal);
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border-radius: 100px;
+    font-size: 0.82rem;
+    text-decoration: none;
+    z-index: 2;
+    position: relative;
+    transition: background 0.2s;
+  }
+
+  .map-open-btn:hover { background: var(--teal-light); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--deep);
+    padding: 4rem 4rem 2rem;
+    color: rgba(247,243,238,0.6);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .footer-brand {}
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-tagline {
+    font-size: 0.82rem;
+    line-height: 1.7;
+    max-width: 260px;
+    margin-bottom: 1.5rem;
+  }
+
+  .social-row {
+    display: flex; gap: 0.75rem;
+  }
+
+  .social-btn {
+    width: 36px; height: 36px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    text-decoration: none;
+    color: rgba(247,243,238,0.6);
+  }
+
+  .social-btn:hover { border-color: var(--teal); background: rgba(30,95,90,0.2); }
+
+  .footer-col h4 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--cream);
+    margin-bottom: 1.2rem;
+    font-weight: 500;
+  }
+
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-col ul a {
+    text-decoration: none;
+    color: rgba(247,243,238,0.5);
+    font-size: 0.88rem;
+    transition: color 0.2s;
+  }
+  .footer-col ul a:hover { color: var(--cream); }
+
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.78rem;
+    color: rgba(247,243,238,0.3);
+  }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    position: fixed; inset: 0;
+    background: rgba(26,20,16,0.7);
+    backdrop-filter: blur(4px);
+    z-index: 200;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s;
+  }
+
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+
+  .modal {
+    background: var(--ivory);
+    padding: 3rem;
+    border-radius: 4px;
+    max-width: 480px; width: 90%;
+    transform: translateY(20px);
+    transition: transform 0.3s;
+    position: relative;
+  }
+
+  .modal-overlay.open .modal { transform: translateY(0); }
+
+  .modal-close {
+    position: absolute; top: 1.5rem; right: 1.5rem;
+    background: none; border: none;
+    font-size: 1.2rem; cursor: pointer; color: var(--muted);
+  }
+
+  .modal h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    color: var(--brown);
+    margin-bottom: 0.5rem;
+  }
+
+  .modal p { font-size: 0.88rem; color: var(--muted); margin-bottom: 2rem; }
+
+  .modal .form-grid { margin-top: 0; }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed; bottom: 2rem; right: 2rem;
+    background: var(--teal);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    z-index: 300;
+    transform: translateY(80px);
+    opacity: 0;
+    transition: transform 0.4s, opacity 0.4s;
+    box-shadow: 0 8px 24px rgba(30,95,90,0.3);
+  }
+
+  .toast.show { transform: translateY(0); opacity: 1; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes floatSlow {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(3deg); }
+  }
+
+  @keyframes floatDot {
+    0% { transform: translateY(0) scale(1); opacity: 0.4; }
+    50% { opacity: 0.15; }
+    100% { transform: translateY(-80px) scale(0.5); opacity: 0; }
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: rotate(-45deg) translateY(0); }
+    50% { transform: rotate(-45deg) translateY(-10px); }
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    nav { padding: 1.2rem 2rem; }
+    .nav-links { gap: 1.2rem; }
+    #hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 5rem 2rem; }
+    section { padding: 4rem 2rem; }
+    #about { grid-template-columns: 1fr; }
+    .about-visual { display: none; }
+    .book-inner { grid-template-columns: 1fr; }
+    .reviews-grid { grid-template-columns: 1fr 1fr; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .services-header { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 640px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--ivory); padding: 1.5rem; border-bottom: 1px solid var(--border); gap: 1rem; }
+    .hamburger { display: flex; }
+    .hero-stats { flex-direction: column; gap: 1.5rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .form-grid { grid-template-columns: 1fr; }
+    section { padding: 3.5rem 1.5rem; }
+    #book { padding: 3.5rem 1.5rem; }
+    #reviews { padding: 3.5rem 1.5rem; }
+    .reviews-top { flex-direction: column; gap: 1.5rem; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-logo">
+    <div class="nav-logo-icon">🦷</div>
+    <div class="nav-logo-text">
+      Dental & Oral Care
+      <span>Bhopal, Madhya Pradesh</span>
+    </div>
+  </div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#location">Location</a></li>
+    <li><a href="#book" class="nav-cta">Book Now</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-badge">Rated 4.9 · 116 Reviews · Google</div>
+    <h1 class="hero-h1">Gentle Care for<br><em>Healthier Smiles</em></h1>
+    <p class="hero-p">Bhopal's trusted dental practice — offering expert RCT, dental cleaning, wisdom tooth extractions, and full oral care in a calm, reassuring environment.</p>
+    <div class="hero-actions">
+      <a href="#book" class="btn-primary">Book Appointment</a>
+      <a href="tel:08109819171" class="btn-outline">Call Us</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">4.9★</div>
+        <div class="stat-label">Google Rating</div>
+      </div>
+      <div>
+        <div class="stat-num">116+</div>
+        <div class="stat-label">Happy Patients</div>
+      </div>
+      <div>
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Yrs Experience</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="floating-dots" id="dots"></div>
+    <div class="hero-tooth-art">
+      <svg class="tooth-svg-big" viewBox="0 0 200 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 10 C60 10, 20 40, 20 80 C20 110, 30 130, 40 150 C50 170, 50 200, 60 230 C65 245, 75 255, 85 250 C95 245, 100 225, 100 210 C100 225, 105 245, 115 250 C125 255, 135 245, 140 230 C150 200, 150 170, 160 150 C170 130, 180 110, 180 80 C180 40, 140 10, 100 10Z" fill="white" stroke="white" stroke-width="2"/>
+      </svg>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-title">Patient Satisfaction</div>
+      <div class="hero-rating-row">
+        <div class="rating-big">4.9</div>
+        <div class="stars-col">
+          <div class="stars">★★★★★</div>
+          <div class="reviews-count">Based on 116 reviews</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <div>
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-title">Complete Dental<br>Care Under One Roof</h2>
+    </div>
+    <div>
+      <p class="section-subtitle">From routine cleanings to complex procedures, we provide comprehensive oral care with a gentle touch and modern techniques.</p>
+    </div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-icon">🦷</div>
+      <div class="service-name">Root Canal Treatment</div>
+      <div class="service-desc">Painless RCT procedures with advanced techniques. Our patients consistently report a comfortable, fear-free experience.</div>
+      <span class="service-link">Learn more →</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">✨</div>
+      <div class="service-name">Dental Cleaning</div>
+      <div class="service-desc">Professional scaling and polishing to remove plaque, tartar, and stains for a brighter, healthier smile.</div>
+      <span class="service-link">Learn more →</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🪥</div>
+      <div class="service-name">Tooth Extraction</div>
+      <div class="service-desc">Expert wisdom tooth and complex extractions performed gently with minimal discomfort and fast recovery.</div>
+      <span class="service-link">Learn more →</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">👑</div>
+      <div class="service-name">Dental Crowns & Caps</div>
+      <div class="service-desc">Durable, natural-looking crowns that restore damaged teeth to full function and aesthetics.</div>
+      <span class="service-link">Learn more →</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🌿</div>
+      <div class="service-name">Gum Treatment</div>
+      <div class="service-desc">Comprehensive periodontal care including deep cleaning, gum reshaping, and disease treatment.</div>
+      <span class="service-link">Learn more →</span>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">💎</div>
+      <div class="service-name">Cosmetic Dentistry</div>
+      <div class="service-desc">Teeth whitening, veneers, and smile makeovers designed to enhance your natural beauty with confidence.</div>
+      <span class="service-link">Learn more →</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-visual">
+    <div class="about-bg-rect"></div>
+    <div class="about-main-img">
+      <div class="clinic-illustration">
+        <svg viewBox="0 0 320 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Clinic room illustration -->
+          <rect x="20" y="60" width="280" height="280" rx="4" fill="#e8f4f3"/>
+          <rect x="20" y="60" width="280" height="280" rx="4" stroke="#c5dedd" stroke-width="1.5"/>
+          <!-- Dental chair -->
+          <rect x="60" y="160" width="140" height="80" rx="8" fill="#2E8077" opacity="0.8"/>
+          <rect x="80" y="140" width="100" height="30" rx="15" fill="#1E5F5A"/>
+          <rect x="150" y="200" width="60" height="20" rx="4" fill="#1E5F5A"/>
+          <!-- Light arm -->
+          <line x1="160" y1="80" x2="130" y2="130" stroke="#C4993A" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="120" cy="135" r="20" fill="#E8C976" opacity="0.6"/>
+          <!-- Tools on tray -->
+          <rect x="220" y="180" width="60" height="8" rx="4" fill="#C4993A"/>
+          <rect x="225" y="170" width="4" height="20" rx="2" fill="#888"/>
+          <rect x="235" y="172" width="4" height="18" rx="2" fill="#888"/>
+          <rect x="245" y="168" width="4" height="22" rx="2" fill="#888"/>
+          <!-- Tooth decoration -->
+          <path d="M265 100 C255 100, 245 108, 245 118 C245 126, 248 131, 252 136 C256 141, 256 150, 259 158 C261 163, 264 166, 267 165 C270 164, 272 157, 272 152 C272 157, 274 164, 277 165 C280 166, 283 163, 285 158 C288 150, 288 141, 292 136 C296 131, 299 126, 299 118 C299 108, 289 100, 265 100Z" fill="#1E5F5A" opacity="0.15"/>
+          <!-- Window -->
+          <rect x="220" y="80" width="60" height="50" rx="2" fill="#a8d8d5" opacity="0.7"/>
+          <line x1="250" y1="80" x2="250" y2="130" stroke="#7fc2bf" stroke-width="1"/>
+          <line x1="220" y1="105" x2="280" y2="105" stroke="#7fc2bf" stroke-width="1"/>
+          <!-- Plants -->
+          <circle cx="310" cy="300" r="20" fill="#1E5F5A" opacity="0.4"/>
+          <circle cx="295" cy="310" r="15" fill="#2E8077" opacity="0.5"/>
+          <rect x="305" y="315" width="10" height="25" rx="2" fill="#C4993A" opacity="0.6"/>
+        </svg>
+      </div>
+    </div>
+    <div class="about-badge-float">
+      <div class="num">4.9★</div>
+      <div class="lbl">Google Rating</div>
+    </div>
+  </div>
+
+  <div class="about-text">
+    <div class="section-label">About Our Clinic</div>
+    <h2 class="section-title">Trusted Dental Care<br>in <em style="font-style:italic;color:var(--teal)">Bhopal</em></h2>
+    <p class="section-subtitle">Located at Shop No.6, Gomti Colony, Nehru Nagar, our clinic has been providing exceptional dental care to families across Bhopal. Our experienced female dentist is known for her gentle, patient-centered approach — especially with children and anxious patients.</p>
+    <p class="section-subtitle" style="margin-top:1rem">We believe dental visits shouldn't be stressful. Every patient receives personalised attention, clear explanations of procedures, and compassionate care from start to finish.</p>
+    <div class="about-features">
+      <div class="about-feature">
+        <div class="about-feature-icon">👩‍⚕️</div>
+        <div class="about-feature-text">Expert Female Dentist</div>
+      </div>
+      <div class="about-feature">
+        <div class="about-feature-icon">😌</div>
+        <div class="about-feature-text">Gentle & Painless Treatment</div>
+      </div>
+      <div class="about-feature">
+        <div class="about-feature-icon">🧒</div>
+        <div class="about-feature-text">Child-Friendly Environment</div>
+      </div>
+      <div class="about-feature">
+        <div class="about-feature-icon">💬</div>
+        <div class="about-feature-text">Clear Procedure Explanations</div>
+      </div>
+      <div class="about-feature">
+        <div class="about-feature-icon">🏆</div>
+        <div class="about-feature-text">116+ Satisfied Patients</div>
+      </div>
+      <div class="about-feature">
+        <div class="about-feature-icon">📍</div>
+        <div class="about-feature-text">Nehru Nagar, Bhopal</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="reviews-top">
+    <div>
+      <div class="section-label">Patient Reviews</div>
+      <h2 class="section-title" style="margin-bottom:0.5rem">What Our Patients Say</h2>
+      <p class="section-subtitle">Real experiences from real patients — unfiltered and verified on Google.</p>
+    </div>
+    <div class="overall-score">
+      <div class="score-big">4.9</div>
+      <div class="score-details">
+        <div class="score-stars">★★★★★</div>
+        <div class="score-total">116 Google Reviews</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reviews-grid">
+    <div class="review-card reveal">
+      <div class="review-header">
+        <div class="reviewer-avatar" style="background:#2E8077">RS</div>
+        <div class="reviewer-info">
+          <div class="name">Rajesh Sarathe</div>
+          <div class="date">1 month ago</div>
+        </div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"We had a wonderful experience for my child's RCT treatment. The female dentist was incredibly gentle, patient, and reassuring. My kid was comfortable and surprisingly happy throughout the procedure — no fear at all!"</div>
+      <span class="review-tag">RCT Treatment</span>
+    </div>
+
+    <div class="review-card reveal">
+      <div class="review-header">
+        <div class="reviewer-avatar" style="background:#C4993A">AP</div>
+        <div class="reviewer-info">
+          <div class="name">Alok Pandey</div>
+          <div class="date">1 month ago</div>
+        </div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"I recently had an RCT done and I couldn't be more satisfied. She was extremely professional, gentle, and took time to explain every step of the procedure, which really put me at ease."</div>
+      <span class="review-tag">RCT Treatment</span>
+    </div>
+
+    <div class="review-card reveal">
+      <div class="review-header">
+        <div class="reviewer-avatar" style="background:#1A1410">MP</div>
+        <div class="reviewer-info">
+          <div class="name">Mahi Pandey</div>
+          <div class="date">1 month ago</div>
+        </div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"I took my wife here for RCT and cap treatment. The doctor was very professional, patient, and explained the entire procedure clearly. The treatment was smooth and painless. Highly recommend!"</div>
+      <span class="review-tag">Crown & Cap</span>
+    </div>
+
+    <div class="review-card reveal">
+      <div class="review-header">
+        <div class="reviewer-avatar" style="background:#5A3E2B">SK</div>
+        <div class="reviewer-info">
+          <div class="name">Sunita Khare</div>
+          <div class="date">2 months ago</div>
+        </div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"It was a great experience to have a proper cleaning of teeth. Very knowledgeable doctor and good staff behaviour. The clinic has a comfortable ambiance."</div>
+      <span class="review-tag">Dental Cleaning</span>
+    </div>
+
+    <div class="review-card reveal">
+      <div class="review-header">
+        <div class="reviewer-avatar" style="background:#4A7C59">RK</div>
+        <div class="reviewer-info">
+          <div class="name">Ravi Kumar</div>
+          <div class="date">2 months ago</div>
+        </div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"Good environment and good treatment. The doctor gave clear explanations about the procedure. Staff is very cooperative and helpful. Will definitely recommend to family and friends."</div>
+      <span class="review-tag">General Dentistry</span>
+    </div>
+
+    <div class="review-card reveal">
+      <div class="review-header">
+        <div class="reviewer-avatar" style="background:#6B4C8A">PM</div>
+        <div class="reviewer-info">
+          <div class="name">Priya Mishra</div>
+          <div class="date">3 months ago</div>
+        </div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"Had my wisdom tooth extracted here. Was terrified going in, but the doctor made the whole process so smooth and relatively painless. The after-care advice was also excellent."</div>
+      <span class="review-tag">Wisdom Tooth</span>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK APPOINTMENT -->
+<section id="book">
+  <div class="book-inner">
+    <div class="form-section">
+      <div class="section-label">Book Appointment</div>
+      <h2 class="section-title">Schedule Your Visit</h2>
+      <p class="section-subtitle" style="margin-bottom:0">Fill in your details and we'll confirm your appointment shortly.</p>
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">First Name</label>
+          <input type="text" class="form-input" placeholder="Ramesh" id="f-fname">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Last Name</label>
+          <input type="text" class="form-input" placeholder="Sharma" id="f-lname">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone Number</label>
+          <input type="tel" class="form-input" placeholder="98765 43210" id="f-phone">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Preferred Date</label>
+          <input type="date" class="form-input" id="f-date">
+        </div>
+        <div class="form-group full">
+          <label class="form-label">Service Required</label>
+          <select class="form-select" id="f-service">
+            <option value="">Select a service...</option>
+            <option>Root Canal Treatment (RCT)</option>
+            <option>Dental Cleaning & Scaling</option>
+            <option>Wisdom Tooth Extraction</option>
+            <option>Dental Crown & Cap</option>
+            <option>Teeth Whitening</option>
+            <option>Gum Treatment</option>
+            <option>Dental Consultation</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label class="form-label">Additional Notes</label>
+          <textarea class="form-textarea" placeholder="Describe your symptoms or any concerns..." id="f-notes"></textarea>
+        </div>
+        <button class="form-submit" id="submit-btn" onclick="submitForm()">Confirm Appointment</button>
+      </div>
+    </div>
+
+    <div class="info-section">
+      <div class="info-block">
+        <div class="info-block-title">Contact Information</div>
+        <div class="info-row">
+          <div class="info-icon">📞</div>
+          <div class="info-content">
+            <div class="label">Phone</div>
+            <div class="value"><a href="tel:08109819171" style="color:inherit;text-decoration:none">081098 19171</a></div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">📍</div>
+          <div class="info-content">
+            <div class="label">Address</div>
+            <div class="value">Shop No.6, Gomti Colony, Nehru Nagar, Bhopal — 462003</div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">🗺️</div>
+          <div class="info-content">
+            <div class="label">Plus Code</div>
+            <div class="value">696R+RM Bhopal, MP</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-title">Clinic Hours</div>
+        <table class="hours-table">
+          <tr><td>Monday</td><td>9:00 AM – 9:00 PM</td></tr>
+          <tr><td>Tuesday</td><td>9:00 AM – 9:00 PM</td></tr>
+          <tr><td>Wednesday</td><td>9:00 AM – 9:00 PM</td></tr>
+          <tr><td>Thursday</td><td>9:00 AM – 9:00 PM</td></tr>
+          <tr><td>Friday</td><td>9:00 AM – 9:00 PM</td></tr>
+          <tr class="today"><td>Saturday ✓</td><td>Open till 9 PM</td></tr>
+          <tr><td>Sunday</td><td>10:00 AM – 6:00 PM</td></tr>
+        </table>
+      </div>
+
+      <div class="info-block" style="background:var(--teal);border-color:var(--teal)">
+        <div style="color:rgba(255,255,255,0.7);font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.5rem">Emergency?</div>
+        <div style="color:white;font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;margin-bottom:0.4rem">Call Us Directly</div>
+        <div style="color:rgba(255,255,255,0.8);font-size:0.88rem;margin-bottom:1.2rem">For urgent dental care, call us immediately.</div>
+        <a href="tel:08109819171" class="btn-primary" style="display:inline-block;background:white;color:var(--teal);font-size:0.85rem">📞 081098 19171</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<div id="location">
+  <div class="map-placeholder">
+    <a href="https://maps.google.com/?q=Dental+%26+Oral+Disease+Clinic+Nehru+Nagar+Bhopal" target="_blank" style="position:relative;z-index:2;display:contents">
+      <div class="map-pin"></div>
+    </a>
+    <div class="map-address">
+      Dental & Oral Disease Clinic
+      <small>Shop No.6, Gomti Colony, Nehru Nagar, Bhopal — 462003</small>
+    </div>
+    <a href="https://maps.google.com/?q=Dental+%26+Oral+Disease+Clinic+Nehru+Nagar+Bhopal" target="_blank" class="map-open-btn">Open in Google Maps →</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">🦷 Dental & Oral Disease Clinic</div>
+      <p class="footer-tagline">Bhopal's trusted dental care centre — providing gentle, expert treatment with a 4.9-star rated experience since over a decade.</p>
+      <div class="social-row">
+        <a class="social-btn" href="#" title="Facebook">f</a>
+        <a class="social-btn" href="#" title="Instagram">✦</a>
+        <a class="social-btn" href="#" title="WhatsApp">w</a>
+        <a class="social-btn" href="tel:08109819171" title="Call">☎</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Root Canal (RCT)</a></li>
+        <li><a href="#">Dental Cleaning</a></li>
+        <li><a href="#">Tooth Extraction</a></li>
+        <li><a href="#">Crowns & Caps</a></li>
+        <li><a href="#">Teeth Whitening</a></li>
+        <li><a href="#">Gum Treatment</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Clinic</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#reviews">Patient Reviews</a></li>
+        <li><a href="#book">Book Appointment</a></li>
+        <li><a href="#location">Find Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:08109819171">081098 19171</a></li>
+        <li><a href="#">Nehru Nagar, Bhopal</a></li>
+        <li><a href="#">MP — 462003</a></li>
+        <li><a href="#">Open Daily</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2025 Dental & Oral Disease Clinic, Bhopal. All rights reserved.</div>
+    <div>Designed with care · Gomti Colony, Nehru Nagar</div>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast">✓ Appointment request submitted! We'll call you shortly.</div>
+
+<script>
+  // Scroll nav shadow
+  window.addEventListener('scroll', () => {
+    document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Hamburger
+  function toggleMenu() {
+    document.getElementById('nav-links').classList.toggle('open');
+  }
+
+  // Close menu on link click
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('nav-links').classList.remove('open'));
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Floating dots in hero
+  const dotsContainer = document.getElementById('dots');
+  if (dotsContainer) {
+    for (let i = 0; i < 12; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'dot';
+      const size = Math.random() * 60 + 10;
+      dot.style.cssText = `
+        width:${size}px;height:${size}px;
+        left:${Math.random()*100}%;
+        top:${Math.random()*100}%;
+        animation-duration:${Math.random()*8+6}s;
+        animation-delay:${Math.random()*5}s;
+      `;
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  // Set today's date as min date for appointment
+  const dateInput = document.getElementById('f-date');
+  if (dateInput) {
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.min = today;
+    dateInput.value = today;
+  }
+
+  // Form submit
+  function submitForm() {
+    const fname = document.getElementById('f-fname').value.trim();
+    const phone = document.getElementById('f-phone').value.trim();
+    const service = document.getElementById('f-service').value;
+
+    if (!fname || !phone || !service) {
+      alert('Please fill in your name, phone number, and select a service.');
+      return;
+    }
+
+    const btn = document.getElementById('submit-btn');
+    btn.textContent = '✓ Appointment Requested!';
+    btn.style.background = '#4CAF50';
+    btn.disabled = true;
+
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 4000);
+
+    setTimeout(() => {
+      btn.textContent = 'Confirm Appointment';
+      btn.style.background = '';
+      btn.disabled = false;
+    }, 5000);
+  }
+
+  // Smooth appear for service links
+  document.querySelectorAll('.service-link').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('book').scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>
